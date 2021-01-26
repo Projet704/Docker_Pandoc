@@ -25,6 +25,9 @@ path2 = path+fichier
 
 output = pypandoc.convert_file(path2, 'docx', outputfile="somefile.docx")
 
+#Déplacement du fichier résultat dans le dossier GIT
+subprocess.run(['mv', output, nameRepo])
+
 #Ajout du résultat pour l'envoyer au dépot distant
 subprocess.Popen(['git', 'add', '.'], cwd=path)
 
